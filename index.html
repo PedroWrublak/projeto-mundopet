@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mundo Pet</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <aside>
+      <img src="./img/logo.svg" alt="Logo mundo pet" />
+      <nav>
+        <ul class="lista-links">
+          <li>
+            <a href="" class="link-destaque">Publicar</a>
+          </li>
+          <li>
+            <img src="./img/feed.svg" />
+            <a href="">Feed</a>
+          </li>
+          <li>
+            <img src="./img/cat.svg" />
+            <a href="">Pefil</a>
+          </li>
+          <li>
+            <img src="./img/info.svg" />
+            <a href="">Sobre nós</a>
+          </li>
+          <li>
+            <img src="./img/logout.svg" />
+            <a href="">Sair</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main>
+      <div class="container-upload-image">
+        <div class="container-image">
+          <img src="./img/imagem1.png" alt="" class="main-image"/>
+        </div>
+        <button id="upload-btn">Carregar imagem</button>
+        <input
+          type="file"
+          id="image-upload"
+          accept="image/"
+          style="display: none"
+        />
+        <div class="container-imagem-nome">
+          <p>imagem_gato.png</p>
+          <img src="./img/close.svg" />
+        </div>
+      </div>
+      <div>
+        <div class="container-descricao">
+          <h2>Nova Foto</h2>
+        </div>
+
+        <form>
+          <div>
+            <label for="nome">Nome do projeto</label>
+            <input type="text" id="nome" name="nome" />
+          </div>
+          <div>
+            <label for="descricao">Descrição</label>
+            <textarea type="text" id="descricao" name="descricao"></textarea>
+          </div>
+          <div>
+            <label for="hashtags">Hashtags</label>
+            <input type="text" id="hashtags" name="hashtags" />
+          </div>
+          <ul class="lista-tags">
+            <li>
+                <p>Gato</p>
+                <img src="./img/close-black.svg">
+            </li>
+          </ul>
+        </form>
+        <div class="container-botoes">
+            <button class="btn-descartar">Descartar</button>
+            <button class="btn-publicar">Publicar</button>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

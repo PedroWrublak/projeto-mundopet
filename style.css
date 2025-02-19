@@ -1,0 +1,234 @@
+:root {
+    --background-color: black;
+    --text-color: #E1E1E1;
+    --primary-color: #FD7BF0;
+    --secondary-color: #888888;
+    --tag-color: #E7E5E5;
+    --font-family: "Prompt", sans-serif;
+    --itens-background: #211727;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+
+    display: flex;
+    justify-content: center;
+    gap: 27px;
+    padding: 50px 0;
+}
+
+aside {
+    background-color: var(--itens-background);
+    border-radius: 10px;
+    height: 100%;
+    padding: 40px 16px;
+    text-align: center;
+}
+
+.lista-links {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 80px;
+    align-items: center;
+    list-style-type: none;
+}
+
+.lista-links a {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-size: 22px;
+}
+
+.lista-links li:first-of-type a {
+    color: var(--primary-color);
+}
+
+.link-destaque {
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 12px 16px;
+}
+
+main {
+    display: flex;
+    background-color: var(--itens-background);
+    border-radius: 8px;
+    gap: 40px;
+    padding: 32px;
+}
+
+h2 {
+    font-size: 26px;
+    margin-bottom: 40px;
+    gap: 24px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+}
+
+form div label {
+    width: 100%;
+    font-weight: 400;
+    display: block;
+    margin: 20px 0 10px 0;
+}
+
+form div input, textarea {
+    width: 100%;
+    padding: 8px 16px;
+    background-color: var(--tag-color);
+    border: none;
+    border-radius: 4px;
+    font-family: var(--font-family);
+    line-height: 22.5px;
+}
+
+form div input {
+    height: 39px;
+}
+
+textarea {
+    height: 161px;
+}
+
+.lista-tags li {
+    display: flex;
+    background-color: var(--tag-color);
+    color: var(--background-color);
+    gap: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin: 25px 0;
+}
+
+.lista-tags {
+    display: flex;
+}
+
+.container-botoes {
+    display: flex;
+    gap: 24px;
+    justify-content: space-between;
+}
+
+.container-botoes button {
+    width: 50%;
+    padding: 12px 32px 12px 12px;
+    text-align: center;
+    border-radius: 8px;
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.btn-descartar {
+    background-color: var(--itens-background);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    position: relative;
+
+}
+
+.btn-descartar::after {
+    content: "";
+    background-image: url("./img/trash.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 8px;
+}
+
+.btn-publicar {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    position: relative;
+    border: none;
+}
+
+.btn-publicar::after {
+    content: "";
+    background-image: url(./img/arrow_forward2.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 8px;
+}
+
+.container-descricao {
+    width: 422px;
+}
+
+.main-image {
+    border-radius: 8px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container-image {
+    height: 368px;
+    padding: 24px 16px;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+}
+
+.container-upload-image button {
+    background-color: var(--itens-background);
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    margin: 16px 0 8px 0;
+    padding: 12px 16px;
+    gap: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    position: relative;
+}
+
+.container-upload-image button::after {
+    content: "";
+    background-image: url("./img/upload.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    margin-left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.container-imagem-nome {
+    display: flex;
+    gap: 8px;
+    color: var(--secondary-color);
+    font-size: 15px;
+}
