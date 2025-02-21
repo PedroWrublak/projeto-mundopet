@@ -5,31 +5,33 @@ uploadBtn.addEventListener('click', () => {
     inputUpload.click();
 })
 
-function lerConteudoDoarquivo(arquivo) {
-    return new Promise ((resolve, reject) => {
+function lerConteudoDoArquivo(arquivo) {
+    return new Promise((resolve, reject) => {
         const reader = new FileReader();
-        leitor.onload = () => {
+        reader.onload = () => {
             resolve({url: reader.result, nome: arquivo.name})
         }
-        leitor.onerror = () => {
+        reader.onerror = () => {
             reject(`Erro na leitura do arquivo ${arquivo.name}`)
         }
+
+        reader.readAsDataURL(arquivo)
     })
 }
 
-const imagemPrincipal = document.querySelector("main-image");
-const nomeDaImagem = document.querySelector("container-imagem-name p");
+const imagemPrincipal = document.querySelector(".main-image");
+const nomeDaImagem = document.querySelector(".container-imagem-nome p");
 
 inputUpload.addEventListener("change", async (evento) => {
     const arquivo = evento.target.files[0];
 
     if(arquivo) {
         try {
-            const conteudoDoArquivo = await lerConteudoDoarquivo(arquivo);
+            const conteudoDoArquivo = await lerConteudoDoArquivo(arquivo);
             imagemPrincipal.src = conteudoDoArquivo.url;
             nomeDaImagem.textContent = conteudoDoArquivo.nome
-        } catch(erro){
-            console.error("Erro na leitura do aqruivo")
+        } catch (erro){
+            console.error("Erro na leitura do arquivo")
         }
     }
 })
