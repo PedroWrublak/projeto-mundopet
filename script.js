@@ -49,5 +49,21 @@ let listaDeGatos = [
     {nome: 'Xavier', cor: 'laranja'}
 ];
 
-let gatosLaranja = filtrarGatosPorCor(listaDeGatos, 'laranja');
-console.log(gatosLaranja);
+const inputTags = document.getElementById("input-tags");
+const tagList = document.getElementById("tag-list");
+
+inputTags.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        const tagText = inputTags.value.trim(); //remove os espaços em branco antes e depois da palavra
+        if (tagText !== "") {
+            const newTag = document.createElement("li");
+            newTag.innerHTML = `<p>${tagText}</p> <img src="./img/close-black.svg" class="remove-tag">`;
+            tagList.appendChild(newTag);
+            inputTags.value = "";
+        } else {
+            alert('Tag inválida')
+        }
+    }
+})
+

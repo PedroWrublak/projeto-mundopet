@@ -30,8 +30,8 @@ body {
 
 aside {
     background-color: var(--itens-background);
-    border-radius: 10px;
     height: 100%;
+    border-radius: 10px;
     padding: 40px 16px;
     text-align: center;
 }
@@ -39,7 +39,7 @@ aside {
 .lista-links {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 65px;
     margin-top: 80px;
     align-items: center;
     list-style-type: none;
