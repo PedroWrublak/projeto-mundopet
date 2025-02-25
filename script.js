@@ -35,3 +35,19 @@ inputUpload.addEventListener("change", async (evento) => {
         }
     }
 })
+
+// Filtrar gatos por cor
+
+function filtrarGatosPorCor (listaDeGatos, corDesejada) {
+    return listaDeGatos.filter(gato => gato.cor === corDesejada);
+}
+
+let listaDeGatos = [
+    {nome: 'Astolfo', cor: 'laranja'},
+    {nome: 'Arnold', cor: 'preto'},
+    {nome: 'Rivaldo', cor: 'branco'},
+    {nome: 'Xavier', cor: 'laranja'}
+];
+
+let gatosLaranja = filtrarGatosPorCor(listaDeGatos, 'laranja');
+console.log(gatosLaranja);
