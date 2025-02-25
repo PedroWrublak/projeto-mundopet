@@ -117,7 +117,7 @@ textarea {
     gap: 10px;
     padding: 4px 8px;
     border-radius: 4px;
-    margin: 25px 0;
+    margin: 25px 0 10px 5px;
 }
 
 .lista-tags {

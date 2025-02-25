@@ -1,0 +1,43 @@
+
+body {
+    display: flex;
+    align-items: center;
+}
+
+.sign-in {
+    background-color: #211727;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 450px;
+    height: 500px;
+    border: 1px solid #FD7BF0;
+    border-radius: 8px;
+}
+
+.sign-in h2 {
+    display: flex;
+    margin-top: 20px;
+    align-self: center;
+    
+}
+
+input {
+    padding: 15px;
+    margin: 10px;
+    border-radius: 6px;
+}
+
+.submit-btn {
+    display: flex;
+    align-self: center;
+    background-color: #211727;
+    border: 1px solid #FD7BF0;
+    color: white;
+    width: 150px;
+}
+
+.submit-btn:hover {
+    background-color: #FD7BF0;
+    border: 1px solid #211727;
+}
