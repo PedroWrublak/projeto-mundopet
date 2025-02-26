@@ -49,21 +49,40 @@ let listaDeGatos = [
     {nome: 'Xavier', cor: 'laranja'}
 ];
 
-const inputTags = document.getElementById("input-tags");
-const tagList = document.getElementById("tag-list");
-
-inputTags.addEventListener("keypress", (event) => {
-    if (event.key === "Enter") {
-        event.preventDefault();
-        const tagText = inputTags.value.trim(); //remove os espaços em branco antes e depois da palavra
-        if (tagText !== "") {
-            const newTag = document.createElement("li");
-            newTag.innerHTML = `<p>${tagText}</p> <img src="./img/close-black.svg" class="remove-tag">`;
-            tagList.appendChild(newTag);
-            inputTags.value = "";
-        } else {
-            alert('Tag inválida')
+document.addEventListener('DOMContentLoaded', () => {
+    const inputTags = document.getElementById("input-tags");
+    const tagList = document.getElementById("tag-list");
+    
+    inputTags.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            const tagText = inputTags.value.trim(); //remove os espaços em branco antes e depois da palavra
+            if (tagText !== "" && avaibleHashtags.includes(tagText)) {
+                const newTag = document.createElement("li");
+                newTag.innerHTML = `<p>${tagText}</p> <img src="./img/close-black.svg" class="remove-tag">`;
+                tagList.appendChild(newTag);
+                inputTags.value = "";
+            } else {
+                alert('Tag inválida')
+            }
         }
+    })
+    
+    tagList.addEventListener("click", (event) => {
+        if (event.target.classList.contains("remove-tag")) {
+            const removedTag = event.target.parentElement;
+            tagList.removeChild(removedTag);
+        }
+    })
+    
+    const avaibleHashtags = ["Laranja", "Amarelo", "Preto", "Branco", "Marrom", "Siamês"]
+    
+    
+    async function verifyAvaibleHashtags (tagText) {
+        return new Promise((resolve => {
+            setTimeout(() => {
+                resolve(avaibleHashtags.includes(tagText))
+            }, 1000)
+        }))
     }
 })
-
