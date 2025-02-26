@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const publishBtn = document.querySelector(".btn-publicar");
     
     publishBtn.addEventListener("click", async (event) => {
+        event.preventDefault();
         const projectName = document.getElementById("nome").value;
         const projectDescription = document.getElementById("descricao").value;
         const projectTags = Array.from(tagList.querySelectorAll("p")).map((tag) => tag.textContent);
