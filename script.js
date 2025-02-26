@@ -53,20 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputTags = document.getElementById("input-tags");
     const tagList = document.getElementById("tag-list");
     
-    inputTags.addEventListener("keypress", (event) => {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            const tagText = inputTags.value.trim(); //remove os espaços em branco antes e depois da palavra
-            if (tagText !== "" && avaibleHashtags.includes(tagText)) {
-                const newTag = document.createElement("li");
-                newTag.innerHTML = `<p>${tagText}</p> <img src="./img/close-black.svg" class="remove-tag">`;
-                tagList.appendChild(newTag);
-                inputTags.value = "";
-            } else {
-                alert('Tag inválida')
-            }
-        }
-    })
     
     tagList.addEventListener("click", (event) => {
         if (event.target.classList.contains("remove-tag")) {
@@ -85,4 +71,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1000)
         }))
     }
+
+    inputTags.addEventListener("keypress", async (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            const tagText = inputTags.value.trim(); //remove os espaços em branco antes e depois da palavra
+            if (tagText !== "") {
+                try {
+                    const existTag = await verifyAvaibleHashtags(tagText)
+                    if (existTag) {
+                        const newTag = document.createElement("li");
+                        newTag.innerHTML = `<p>${tagText}</p> <img src="./img/close-black.svg" class="remove-tag">`;
+                        tagList.appendChild(newTag);
+                        inputTags.value = "";
+                    } else {
+                        alert("A tag não foi encontrada.");
+                    }
+                } catch (error) {
+                    console.error("Erro ao verificar a existência da tag");
+                    alert("Erro ao verificar a existência da tag. Verifique o console.")
+                }
+
+            }
+        }
+    })
 })
