@@ -95,4 +95,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     })
+    const publishBtn = document.querySelector(".btn-publicar");
+    
+    publishBtn.addEventListener("click", async (event) => {
+        const projectName = document.getElementById("nome").value;
+        const projectDescription = document.getElementById("descricao").value;
+        const projectTags = Array.from(tagList.querySelectorAll("p")).map((tag) => tag.textContent);
+
+        console.log(projectName)
+        console.log(projectDescription)
+        console.log(projectTags)
+    })
 })
+
