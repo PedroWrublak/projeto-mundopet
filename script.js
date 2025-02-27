@@ -97,16 +97,27 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     const publishBtn = document.querySelector(".btn-publicar");
     
+    async function publishProject (projectName, projectDescription, projectTags) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const itWorked = Math.random() > 0.5; // Funcionalidade baseada na sorte, não faz parte do projeto
+    
+                if (itWorked) {
+                    resolve("Projeto publicado com sucesso.");
+                } else {
+                    reject("Erro ao publicar o projeto");
+                }
+    
+            }, 2000)
+        })
+    }
+    
     publishBtn.addEventListener("click", async (event) => {
         event.preventDefault();
         const projectName = document.getElementById("nome").value;
         const projectDescription = document.getElementById("descricao").value;
         const projectTags = Array.from(tagList.querySelectorAll("p")).map((tag) => tag.textContent);
-
-        console.log(projectName)
-        console.log(projectDescription)
-        console.log(projectTags)
-
+        
         try {
             const mensage = await publishProject (projectName, projectDescription, projectTags);
             alert(mensage);
@@ -116,19 +127,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 })
-
-async function publishProject (projectName, projectDescription, projectTags) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            const itWorked = Math.random() > 0.5; // Funcionalidade baseada na sorte, não faz parte do projeto
-
-            if (itWorked) {
-                resolve("Projeto publicado com sucesso.");
-            } else {
-                reject("Erro ao publicar o projeto");
-            }
-
-        }, 2000)
-    })
-}
-
