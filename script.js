@@ -106,6 +106,14 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(projectName)
         console.log(projectDescription)
         console.log(projectTags)
+
+        try {
+            const mensage = await publishProject (projectName, projectDescription, projectTags);
+            alert(mensage);
+        } catch (error) {
+            console.error(error);
+            alert(error);
+        }
     })
 })
 
