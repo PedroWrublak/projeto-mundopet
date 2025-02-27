@@ -6,12 +6,46 @@ const erroNome = document.getElementById('erro-nome');
 const erroEmail = document.getElementById('erro-email');
 const erroSenha = document.getElementById('erro-senha');
 
-form.addEventListener('submit', (event) => {
+const avaibleEmails = ["exemploemail@gmail.com", "exemploemail2@gmail.com", "exemploemail3@gmail.com"]
+const avaibleName = ["Exemplonome", "Exemplonome2", "Exemplonome3"]
+    
+async function verifYEmail (email) {
+    return new Promise((resolve) => {
+        setTimeout (() => {
+            resolve(avaibleEmails.includes(email));
+        })
+    }, 2000)
+}
+
+async function verifyName (name) {
+    return new Promise((resolve) => {
+        setTimeout (() => {
+            resolve(avaibleName.includes(name));
+        })
+    }, 100)
+}
+
+form.addEventListener('submit', async (event) => {
     event.preventDefault();
+    const emailText = email.value;
+    const nameText = nome.value;
+
+
+    const existEmail = await verifYEmail(emailText);
+    const existName = await verifyName(nameText);
+
     if (nome.value.trim() === '') {
         erroNome.textContent = 'O nome é obrigatório';
         return;
     } else {
+        try {
+            if(existEmail) {
+                alert("Esse email já está sendo utilizado.")
+            }
+        } catch (error) {
+            console.error("Erro ao verificar a existência do email.")
+            alert("Erro ao verificar a existência do email. Verifique o console.")
+        }
         erroNome.textContent = '';
     }
 
@@ -20,8 +54,21 @@ form.addEventListener('submit', (event) => {
         erroEmail.textContent = 'O email é obrigatório.';
         return;
     } else {
+        try {
+            if (existName) {
+                alert("Esse nome de usuário já existe.")
+            }
+        } catch (error) {
+            console.error("Erro ao verificar a existência do nome.")
+            alert("Erro ao verificar a existência do email. Verifique o console.")
+        }
         erroEmail.textContent = '';
     }
+
+    if (!existEmail && !existName) {
+        alert("Cadastro realizado com sucesso.")
+    }
+
 
     if (senha.value.trim() === '') {
         erroSenha.textContent = 'A senha é obrigatória';
