@@ -49,9 +49,10 @@ let listaDeGatos = [
     {nome: 'Xavier', cor: 'laranja'}
 ];
 
+const inputTags = document.getElementById("input-tags");
+const tagList = document.getElementById("tag-list");
+
 document.addEventListener('DOMContentLoaded', () => {
-    const inputTags = document.getElementById("input-tags");
-    const tagList = document.getElementById("tag-list");
     
     
     tagList.addEventListener("click", (event) => {
@@ -126,4 +127,18 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(error);
         }
     })
+})
+
+const descartBtn = document.querySelector(".btn-descartar");
+
+descartBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const form = document.querySelector("form");
+    form.reset();
+
+    imagemPrincipal.src = "./img/imagem1.jpeg";
+    nomeDaImagem.textContent = "imagem1.jpeg"
+
+    tagList.innerHTML = "";
 })
