@@ -128,6 +128,7 @@ textarea {
     display: flex;
     gap: 24px;
     justify-content: space-between;
+    margin-top: 20px;
 }
 
 .container-botoes button {
@@ -146,6 +147,11 @@ textarea {
     border: 1px solid var(--primary-color);
     position: relative;
 
+}
+
+.btn-descartar:hover {
+    background-color: var(--primary-color);
+    color: var(--itens-background);
 }
 
 .btn-descartar::after {
@@ -167,6 +173,12 @@ textarea {
     color: var(--background-color);
     position: relative;
     border: none;
+}
+
+.btn-publicar:hover {
+    background-color: var(--itens-background);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
 }
 
 .btn-publicar::after {

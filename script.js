@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     reject("Erro ao publicar o projeto");
                 }
     
-            }, 2000)
+            }, 1000)
         })
     }
     
@@ -119,13 +119,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const projectDescription = document.getElementById("descricao").value;
         const projectTags = Array.from(tagList.querySelectorAll("p")).map((tag) => tag.textContent);
         
-        try {
+        if (projectName == "" || projectDescription == "") {
+            alert("O nome e a descrição projeto do são obrigatórios.");
+        } else if (projectTags == "") {
+            alert("Adicione pelo menos uma Hashtag.");
+        } else {
+         try {
             const mensage = await publishProject (projectName, projectDescription, projectTags);
             alert(mensage);
         } catch (error) {
             console.error(error);
             alert(error);
+        }   
         }
+        
+        
     })
 })
 
